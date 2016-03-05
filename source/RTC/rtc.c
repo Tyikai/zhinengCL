@@ -105,7 +105,7 @@ void RTC_IRQHandler(void)
 					u8 min  分钟
 					u8 sec  秒钟
 @return	:	u8 设置结果 0成功， 1失败
-@Info		:	设置时钟
+@Info		:	设置时钟，自定义
 .............................................................................*/
 u8  RTC_Set(u16 syear, u8 smon, u8 sday, u8 hour, u8 min, u8 sec)
 {
