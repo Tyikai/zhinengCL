@@ -21,9 +21,9 @@ static void RTC_NVIC_Config(void)
 	NVIC_InitTypeDef NVIC_InitStructure;
 	NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
 											//RTC全局中断
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
 											//先占优先级1位,从优先级3位
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;	
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;	
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 											//使能该通道中断
 	NVIC_Init(&NVIC_InitStructure);			//根据NVIC_InitStruct中指定的参数初始化外设NVIC寄存器
@@ -36,6 +36,7 @@ static void RTC_NVIC_Config(void)
 .............................................................................*/
 u8 RTC_Init(void)
 {
+	
 											//检查是不是第一次配置时钟
 	u8 temp=0;
  
@@ -105,7 +106,7 @@ void RTC_IRQHandler(void)
 			u8 min  分钟
 			u8 sec  秒钟
 @return	:	u8 设置结果 0成功， 1失败
-@Info	:	设置时钟，自定义
+@Info	:	设置时钟
 .............................................................................*/
 u8  RTC_Set(u16 syear, u8 smon, u8 sday, u8 hour, u8 min, u8 sec)
 {
@@ -145,4 +146,130 @@ u8  RTC_Set(u16 syear, u8 smon, u8 sday, u8 hour, u8 min, u8 sec)
 
 	RTC_WaitForLastTask();					//等待最近一次对RTC寄存器的写操作完成  	
 	return 0;	 	
+}
+/*.............................................................................
+@Name	:	Is_Leap_Year
+@Param	:	u16 year 年份
+@return	:	u8 判断结果 1 闰年 0  平年
+@Info	:	判断年份是否为闰年
+.............................................................................*/
+u8 Is_Leap_Year(u16 year)
+{
+	if(year%4==0)
+	{
+		if(year%100==0)
+		{
+			if(year%400==0)
+			{
+				return 1;
+			}else
+			{
+				return 0;
+			}
+		}else
+		{
+			return 1;
+		}
+	}else
+	{
+		return 0;
+	}
+}
+/*.............................................................................
+@Name	:	RTC_Get
+@Param	:	void
+@return	:	u8 获取结果， 0成功 1失败
+@Info	:	得到当前时间
+.............................................................................*/
+u8 RTC_Get(void)
+{
+	static u16 daycnt = 0;
+	u32 timecount = 0;
+	u16 temp = 0;
+	u16 temp1 = 0;
+	timecount=RTC_GetCounter();								
+	temp = timecount/86400;										//得到天数
+	if(daycnt != temp)
+	{
+		daycnt = temp;
+		temp1 = 1970;														//从1970年开始
+		while(temp>=365)
+		{
+			if(Is_Leap_Year(temp1))
+			{
+				if(temp>=366)
+				{
+					temp -= 366;											//减去闰年的天数
+				}else																//不满一整年天数的情况
+				{
+					break;														//退出年份计算
+				}
+			}else
+			{
+				temp -= 365;												//减去平年的天数
+			}
+			temp1++;
+		}
+		calendar.w_year = temp1;								//得到年份
+		temp1 = 0;
+		while(temp >= 28)												//剩余的天数，满一个月的情况
+		{
+																						//如果当年是润年且为二月份
+			if(Is_Leap_Year(calendar.w_year)&&temp1 == 1)
+			{
+				if(temp >= 29)
+				{
+					temp -= 29;												//减去闰年二月的情况
+				}else
+				{
+					break;
+				}
+			}else
+			{
+				if(temp>=mon_table[temp1])
+				{
+					temp -= mon_table[temp1];					//其他月份的情况
+				}else																//不满一个月的情况
+				{
+					break;
+				}
+			}
+			temp1 ++;
+		}
+		calendar.w_month = temp1 + 1;						//得到月份
+		calendar.w_day = temp + 1;							//得到日期
+	}
+	temp = timecount % 86400;									//得到秒钟数
+	calendar.hour = temp / 3600;							//得到小时
+	calendar.main = (temp % 3600) / 60;				//得到分钟
+	calendar.sec = (temp%3600) % 60;					//得到秒钟
+	calendar.w_week = RTC_Get_Week(calendar.w_year, calendar.w_month, calendar.w_day);
+	return 0;
+}
+/*.............................................................................
+@Name	:	RTC_Get_Week
+@Param	:	u16 year 年份
+			u8 month 月份
+			u8 day   日期
+@return	:	u8 星期号
+@Info	:	获取现在的星期
+.............................................................................*/
+u8 RTC_Get_Week(u16 year, u8 month, u8 day)
+{
+	u16 temp2=0;
+	u8 yearH = year / 100;
+	u8 yearL = year % 100;
+	if(yearH>19)		//如果为21世纪，年份加100
+	{
+		yearL += 100;
+	}
+	temp2 = yearL + yearL/4;
+	temp2 = temp2 % 7;
+	temp2 = temp2 + day + table_week[month - 1];
+	if(yearL%4==0&&month<3)
+	{
+		temp2 --;
+	}
+	return (temp2%7);
+	
 }

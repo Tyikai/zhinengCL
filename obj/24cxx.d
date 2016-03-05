@@ -6,10 +6,14 @@
 ..\obj\24cxx.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\24cxx.o: ..\user\system_stm32f10x.h
 ..\obj\24cxx.o: ..\user\stm32f10x_conf.h
-..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\24cxx.o: ..\user\stm32f10x.h
+..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_rtc.h
 ..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\24cxx.o: ..\STM32F10x_FWLib\inc\misc.h

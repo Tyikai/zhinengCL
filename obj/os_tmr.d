@@ -15,10 +15,14 @@
 ..\obj\os_tmr.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\os_tmr.o: ..\user\system_stm32f10x.h
 ..\obj\os_tmr.o: ..\user\stm32f10x_conf.h
-..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\os_tmr.o: ..\user\stm32f10x.h
+..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_rtc.h
 ..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\os_tmr.o: ..\STM32F10x_FWLib\inc\misc.h

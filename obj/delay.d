@@ -6,10 +6,14 @@
 ..\obj\delay.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\delay.o: ..\user\system_stm32f10x.h
 ..\obj\delay.o: ..\user\stm32f10x_conf.h
-..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\delay.o: ..\user\stm32f10x.h
+..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_rtc.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\misc.h

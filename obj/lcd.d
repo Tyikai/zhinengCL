@@ -6,10 +6,14 @@
 ..\obj\lcd.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\lcd.o: ..\user\system_stm32f10x.h
 ..\obj\lcd.o: ..\user\stm32f10x_conf.h
-..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\lcd.o: ..\user\stm32f10x.h
+..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_rtc.h
 ..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\lcd.o: ..\STM32F10x_FWLib\inc\misc.h
@@ -17,4 +21,3 @@
 ..\obj\lcd.o: ..\system\delay\delay.h
 ..\obj\lcd.o: ..\system\usart\usart.h
 ..\obj\lcd.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\lcd.o: ..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
