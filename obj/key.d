@@ -1,0 +1,16 @@
+..\obj\key.o: ..\source\KEY\key.c
+..\obj\key.o: ..\source\KEY\key.h
+..\obj\key.o: ..\system\sys\sys.h
+..\obj\key.o: ..\user\stm32f10x.h
+..\obj\key.o: ..\startup\core_cm3.h
+..\obj\key.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\key.o: ..\user\system_stm32f10x.h
+..\obj\key.o: ..\user\stm32f10x_conf.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\key.o: ..\user\stm32f10x.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\key.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\key.o: ..\system\delay\delay.h

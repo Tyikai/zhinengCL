@@ -1,0 +1,16 @@
+..\obj\ili93xx.o: ..\source\LCD\ILI93xx.c
+..\obj\ili93xx.o: ..\source\LCD\ILI93xx.h
+..\obj\ili93xx.o: ..\system\sys\sys.h
+..\obj\ili93xx.o: ..\user\stm32f10x.h
+..\obj\ili93xx.o: ..\startup\core_cm3.h
+..\obj\ili93xx.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\ili93xx.o: ..\user\system_stm32f10x.h
+..\obj\ili93xx.o: ..\user\stm32f10x_conf.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\ili93xx.o: ..\user\stm32f10x.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\ili93xx.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\ili93xx.o: ..\system\delay\delay.h

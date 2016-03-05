@@ -1,0 +1,16 @@
+..\obj\my_iic.o: ..\source\IIC\My_IIC.c
+..\obj\my_iic.o: ..\source\IIC\My_IIC.h
+..\obj\my_iic.o: ..\system\sys\sys.h
+..\obj\my_iic.o: ..\user\stm32f10x.h
+..\obj\my_iic.o: ..\startup\core_cm3.h
+..\obj\my_iic.o: E:\Profession\Application\Keil5\setup\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\my_iic.o: ..\user\system_stm32f10x.h
+..\obj\my_iic.o: ..\user\stm32f10x_conf.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\my_iic.o: ..\user\stm32f10x.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\my_iic.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\my_iic.o: ..\system\delay\delay.h
