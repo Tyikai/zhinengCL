@@ -10,7 +10,7 @@
 #define AT24C64			8191
 #define AT24C128		16383
 #define AT24C256		32767
-#define EE_TYPE AT24C02											//Ä¬ÈÏEEPROmÐ¾Æ¬
+#define EE_TYPE AT24C02						//Ä¬ÈÏEEPROmÐ¾Æ¬
 void AT24Cxx_Init(void);
 u8 AT24Cxx_ReadOneByte(u16 ReadAddr);
 void AT24Cxx_WriteOneByte(u16 WriteAddr, u8 data);

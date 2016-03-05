@@ -2,20 +2,20 @@
 #include "My_IIC.h"
 #include "delay.h"
 /*.............................................................................
-@Name		:	AT24Cxx_Init
+@Name	:	AT24Cxx_Init
 @Param	:	void 
 @return	:	void
-@Info		:	≥ı ºªØ EEPROM–æ∆¨ AT24C02
+@Info	:	≥ı ºªØ EEPROM–æ∆¨ AT24C02
 .............................................................................*/
 void AT24Cxx_Init(void)
 {
 	IIC_Init();
 }
 /*.............................................................................
-@Name		:	AT24Cxx_ReadOneByte
+@Name	:	AT24Cxx_ReadOneByte
 @Param	:	u16 ReadAddr ø™ º∂¡»°µƒµÿ÷∑ 
-@return	:	 u8 ∂¡»°µΩµƒ ˝æ›
-@Info		:	‘⁄AT24Cxx÷∏∂®µÿ÷∑∂¡»°“ª∏ˆ ˝æ›
+@return	:	u8 ∂¡»°µΩµƒ ˝æ›
+@Info	:	‘⁄AT24Cxx÷∏∂®µÿ÷∑∂¡»°“ª∏ˆ ˝æ›
 .............................................................................*/
 u8 AT24Cxx_ReadOneByte(u16 ReadAddr)
 {
@@ -23,64 +23,64 @@ u8 AT24Cxx_ReadOneByte(u16 ReadAddr)
 	IIC_Start();
 	if(EE_TYPE>AT24C16)
 	{
-		IIC_Send_Byte(0xA0);										//∑¢ÀÕ–¥÷∏¡Ó,«∞4bitπÃ∂®Œ™1010 ΩÙΩ”3bitŒ™ A2 A1 A0 ”≤º˛æˆ∂®,
-																						//(œµÕ≥◊Ó∂‡ø…Ω”8∏ˆ…Ë±∏2^3=8) ◊Ó∫Û1bitæˆ∂®∂¡–¥ 1 ∂¡ 0 –¥
-																						//0xA0 = 1010 000 0–¥
+		IIC_Send_Byte(0xA0);				//∑¢ÀÕ–¥÷∏¡Ó,«∞4bitπÃ∂®Œ™1010 ΩÙΩ”3bitŒ™ A2 A1 A0 ”≤º˛æˆ∂®,
+											//(œµÕ≥◊Ó∂‡ø…Ω”8∏ˆ…Ë±∏2^3=8) ◊Ó∫Û1bitæˆ∂®∂¡–¥ 1 ∂¡ 0 –¥
+											//0xA0 = 1010 000 0–¥
 		IIC_Wait_Ack();
-		IIC_Send_Byte(ReadAddr>>8);							//∑¢ÀÕ∏ﬂµÿ÷∑
+		IIC_Send_Byte(ReadAddr>>8);			//∑¢ÀÕ∏ﬂµÿ÷∑
 	}else
 	{
 		IIC_Send_Byte(0xA0+((ReadAddr/256)<<1));//ªÒ»°µÿ÷∑∏ﬂ8Œª
-		                                        //C01°¢C02 1010 A2 A1 A0 R/W
-		                                        //C04      1010 A2 A1 a8 R/W ----a8µÿ÷∑µƒµ⁄9Œª
-																						//C08			1010 A2 a9 a8 R/W	----a9µÿ÷∑µƒµ⁄10Œª
-																						//C16      1010 a10 a9 a8 R/W --- a10µÿ÷∑µƒµ⁄11Œª
-																						//µ±IIC…Ë±∏Œ™C16 ±Ω¸ø…“‘π“‘ÿ1∏ˆ£¨“ÚŒ™Œﬁµÿ÷∑ø…–ﬁ∏ƒ
+		                                    //C01°¢C02 1010 A2 A1 A0 R/W
+		                                    //C04      1010 A2 A1 a8 R/W ----a8µÿ÷∑µƒµ⁄9Œª
+											//C08			1010 A2 a9 a8 R/W	----a9µÿ÷∑µƒµ⁄10Œª
+											//C16      1010 a10 a9 a8 R/W --- a10µÿ÷∑µƒµ⁄11Œª
+											//µ±IIC…Ë±∏Œ™C16 ±Ω¸ø…“‘π“‘ÿ1∏ˆ£¨“ÚŒ™Œﬁµÿ÷∑ø…–ﬁ∏ƒ
 	}
 	IIC_Wait_Ack();
-	IIC_Send_Byte(ReadAddr%256); 							//∑¢ÀÕµÿ÷∑µÕ8Œª
+	IIC_Send_Byte(ReadAddr%256); 			//∑¢ÀÕµÿ÷∑µÕ8Œª
 	IIC_Wait_Ack();
 	IIC_Start();
-	IIC_Send_Byte(0xA1);											//Ω¯»ÎΩ” ’ƒ£ Ω
+	IIC_Send_Byte(0xA1);					//Ω¯»ÎΩ” ’ƒ£ Ω
 	IIC_Wait_Ack();
 	temp = IIC_Read_Byte(0);
-	IIC_Stop();																//≤˙…˙“ª∏ˆÕ£÷πÃıº˛
+	IIC_Stop();								//≤˙…˙“ª∏ˆÕ£÷πÃıº˛
 	return temp;
 }
 /*.............................................................................
-@Name		:	AT24Cxx_WriteOneByte
+@Name	:	AT24Cxx_WriteOneByte
 @Param	:	u16 WriteAddr –¥»Î ˝æ›µƒƒøµƒµÿ÷∑
-					8 data ¥˝–¥»Îµƒ ˝æ›
+			8 data ¥˝–¥»Îµƒ ˝æ›
 @return	:	void
-@Info		:	‘⁄AT24Cxx÷∏∂®µƒµÿ÷∑–¥»Î“ª∏ˆ ˝æ›
+@Info	:	‘⁄AT24Cxx÷∏∂®µƒµÿ÷∑–¥»Î“ª∏ˆ ˝æ›
 .............................................................................*/
 void AT24Cxx_WriteOneByte(u16 WriteAddr, u8 data)
 {
 	IIC_Start();
 	if(EE_TYPE>AT24C16)
 	{
-		IIC_Send_Byte(0xA0);										//∑¢ÀÕ–¥√¸¡Ó
+		IIC_Send_Byte(0xA0);				//∑¢ÀÕ–¥√¸¡Ó
 		IIC_Wait_Ack();
-		IIC_Send_Byte(WriteAddr>>8);						//∑¢ÀÕ∏ﬂµÿ÷∑
+		IIC_Send_Byte(WriteAddr>>8);		//∑¢ÀÕ∏ﬂµÿ÷∑
 	}else
 	{
 		IIC_Send_Byte(0xA0+((WriteAddr/256)<<1));//∑¢ÀÕ∆˜º˛∏ﬂµÿ÷∑
 	}
 	IIC_Wait_Ack();
-	IIC_Send_Byte(WriteAddr%256);							//∑¢ÀÕµÕµÿ÷∑
+	IIC_Send_Byte(WriteAddr%256);			//∑¢ÀÕµÕµÿ÷∑
 	IIC_Wait_Ack();
-	IIC_Send_Byte(data);											//∑¢ÀÕ◊÷Ω⁄
+	IIC_Send_Byte(data);					//∑¢ÀÕ◊÷Ω⁄
 	IIC_Wait_Ack();
-	IIC_Stop();																//≤˙…˙“ª∏ˆÕ£÷πÃıº˛
+	IIC_Stop();								//≤˙…˙“ª∏ˆÕ£÷πÃıº˛
 	delay_ms(10);
 }
 /*.............................................................................
-@Name		:	AT24Cxx_WriteLenByte
+@Name	:	AT24Cxx_WriteLenByte
 @Param	:	u16 WriteAddr –¥»Î ˝æ›µƒƒøµƒµÿ÷∑
-					8 data ¥˝–¥»Îµƒ ˝æ›
-					u8 len –¥»Î ˝æ›µƒ≥§∂»
+			8 data ¥˝–¥»Îµƒ ˝æ›
+			u8 len –¥»Î ˝æ›µƒ≥§∂»
 @return	:	void
-@Info		:	‘⁄AT24Cxx¿Ô√Ê÷∏∂®µƒµÿ÷∑ø™ º–¥»Î≥§∂»Œ™lenµƒ ˝æ›
+@Info	:	‘⁄AT24Cxx¿Ô√Ê÷∏∂®µƒµÿ÷∑ø™ º–¥»Î≥§∂»Œ™lenµƒ ˝æ›
 .............................................................................*/
 void AT24Cxx_WriteLenByte(u16 WriteAddr, u32 data, u8 len)
 {
@@ -91,11 +91,11 @@ void AT24Cxx_WriteLenByte(u16 WriteAddr, u32 data, u8 len)
 	}
 }
 /*.............................................................................
-@Name		:	AT24Cxx_ReadLenByte
+@Name	:	AT24Cxx_ReadLenByte
 @Param	:	u16 WriteAddr –¥»Î ˝æ›µƒƒøµƒµÿ÷∑
-					u8 len  ˝æ›≥§∂» 1,2,4
+			u8 len  ˝æ›≥§∂» 1,2,4
 @return	:	u32 ∂¡»°µΩµƒ ˝æ›
-@Info		:	¥”AT24Cxx–æ∆¨÷–∂¡»°÷∏∂®≥§∂»µƒ ˝æ›
+@Info	:	¥”AT24Cxx–æ∆¨÷–∂¡»°÷∏∂®≥§∂»µƒ ˝æ›
 .............................................................................*/
 u32 AT24Cxx_ReadLenByte(u16 ReadAddr, u8 len)
 {
@@ -109,18 +109,18 @@ u32 AT24Cxx_ReadLenByte(u16 ReadAddr, u8 len)
 	return temp;
 }
 /*.............................................................................
-@Name		:	AT24Cxx_Check
+@Name	:	AT24Cxx_Check
 @Param	:	void
 @return	:	u8 ∑µªÿºÏ≤ÈΩ·π˚ 0 ≥…π¶  1  ß∞‹ 
-@Info		:	ºÏ≤ÈAT24Cxx «∑Ò≥…π¶
+@Info	:	ºÏ≤ÈAT24Cxx «∑Ò≥…π¶
 .............................................................................*/
 u8 AT24Cxx_Check(void)
 {
 	u8 temp;
-	temp = AT24Cxx_ReadOneByte(255);					//±‹√‚√ø¥Œø™ª˙∂º–¥AT24Cxx
+	temp = AT24Cxx_ReadOneByte(255);		//±‹√‚√ø¥Œø™ª˙∂º–¥AT24Cxx
 	if(temp == 0x55)
 	{
-		return 0;																//≈≈≥˝µ⁄“ª¥Œ≥ı ºªØµƒ«Èøˆ
+		return 0;							//≈≈≥˝µ⁄“ª¥Œ≥ı ºªØµƒ«Èøˆ
 	}else
 	{
 		AT24Cxx_WriteOneByte(255, 0x55);
@@ -133,12 +133,12 @@ u8 AT24Cxx_Check(void)
 	return 1;
 }
 /*.............................................................................
-@Name		:	AT24Cxx_Read
+@Name	:	AT24Cxx_Read
 @Param	:	u16 ReadAddr ÷∏∂®∂¡»°µƒµÿ÷∑
-					u8 *pBuffer ¥Ê¥¢ ˝æ› ˝◊Èµƒ ◊µÿ÷∑
-					u16 num ∂¡»° ˝æ›µƒ∏ˆ ˝
+			u8 *pBuffer ¥Ê¥¢ ˝æ› ˝◊Èµƒ ◊µÿ÷∑
+			u16 num ∂¡»° ˝æ›µƒ∏ˆ ˝
 @return	:	void
-@Info		:	¥”AT24Cxx÷∏∂®µƒµÿ÷∑∂¡»°÷∏∂®∏ˆ ˝µƒ ˝æ›
+@Info	:	¥”AT24Cxx÷∏∂®µƒµÿ÷∑∂¡»°÷∏∂®∏ˆ ˝µƒ ˝æ›
 .............................................................................*/
 void AT24Cxx_Read(u16 ReadAddr, u8 *pBuffer, u16 num)
 {
@@ -148,12 +148,12 @@ void AT24Cxx_Read(u16 ReadAddr, u8 *pBuffer, u16 num)
 	}
 }
 /*.............................................................................
-@Name		:	AT24Cxx_Write
+@Name	:	AT24Cxx_Write
 @Param	:	u16 WriteAddr –¥»Î ˝æ›µƒµÿ÷∑
-					u8 *pBuffer–¥»Î ˝æ›µƒ ˝◊È ◊µÿ÷∑
-					u16 num –¥»Î ˝æ›µƒ≥§∂
+			u8 *pBuffer–¥»Î ˝æ›µƒ ˝◊È ◊µÿ÷∑
+			u16 num –¥»Î ˝æ›µƒ≥§∂
 @return	:	void
-@Info		:	‘⁄AT24Cxx÷–÷∏∂®µƒŒª÷√–¥»Î÷∏∂®≥§∂»µƒ ˝æ›
+@Info	:	‘⁄AT24Cxx÷–÷∏∂®µƒŒª÷√–¥»Î÷∏∂®≥§∂»µƒ ˝æ›
 .............................................................................*/
 void AT24Cxx_Write(u16 WriteAddr, u8 *pBuffer, u16 num)
 {

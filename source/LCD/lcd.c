@@ -4,7 +4,7 @@
 #include "usart.h"
 #include "stm32f10x_fsmc.h"
 /*.............................................................................
-															LCD的画笔颜色和背景色
+												LCD的画笔颜色和背景色
 .............................................................................*/	
 u16 POINT_COLOR = 0x0000;										//画笔颜色
 u16 BACK_COLOR = 0xFFFF;										//背景色
@@ -52,8 +52,8 @@ void LCD_DrawPoint(u16 Xpos, u16 Ypos)
 @Name		:	LCD_ReadPoint
 @Param	:	u16 Xpos 横坐标
 					u16 Ypos 纵坐标
-@return	:	
-@Info		:	读取指定GRAM地址的颜色值
+@return	:	u16 读取到的颜色值
+@Info	:		读取指定GRAM地址的颜色值
 .............................................................................*/
 u16 LCD_ReadPoint(u16 x, u16 y)
 {
@@ -168,7 +168,7 @@ void LCD_DrawLine(u16 Xpos0, u16 Ypos0, u16 Xpos, u16 Ypos)
 	}else if(width == 0)
 	{
 		incx = 0;																//垂直方向
-	}else						
+	}else					
 	{
 		incx = -1;															//反方向，向左
 		width = - width;
@@ -219,10 +219,10 @@ void LCD_DrawLine(u16 Xpos0, u16 Ypos0, u16 Xpos, u16 Ypos)
 .............................................................................*/
 void LCD_DrawRectangle(u16 Xpos0, u16 Ypos0, u16 Xpos, u16 Ypos)
 {
-	LCD_DrawLine(Xpos0, Ypos0, Xpos, Ypos0);							//横
-	LCD_DrawLine(Xpos0, Ypos0, Xpos0, Ypos);							//竖
-	LCD_DrawLine(Xpos0, Ypos, Xpos, Ypos);								//横
-	LCD_DrawLine(Xpos, Ypos0, Xpos, Ypos);								//竖
+	LCD_DrawLine(Xpos0, Ypos0, Xpos, Ypos0);	//横
+	LCD_DrawLine(Xpos0, Ypos0, Xpos0, Ypos);	//竖
+	LCD_DrawLine(Xpos0, Ypos, Xpos, Ypos);		//横
+	LCD_DrawLine(Xpos, Ypos0, Xpos, Ypos);		//竖
 }
 /*.............................................................................
 @Name		:	LCD_DrawCircle
@@ -514,7 +514,7 @@ void LCD_Init(void)
 		LCD_WriteReg(0x0007,0x0133);
 		LCD_WriteReg(0x00,0x0022);//
 	}
-	LCD_Display_Dir(0);		 	//默认为竖屏
-	LCD_BL =1;							//点亮背光
+	LCD_Display_Dir(0);		 										//默认为竖屏
+	LCD_BL =1;																//点亮背光
 	LCD_Clear(GREEN);		
 }
