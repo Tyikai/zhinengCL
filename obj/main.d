@@ -26,3 +26,6 @@
 ..\obj\main.o: ..\source\TOUCH\touch.h
 ..\obj\main.o: ..\source\RTC\rtc.h
 ..\obj\main.o: ..\source\LCD\showEN.h
+..\obj\main.o: ..\USMART\usmart.h
+..\obj\main.o: ..\USMART\usmart_str.h
+..\obj\main.o: ..\source\UI\ui.h

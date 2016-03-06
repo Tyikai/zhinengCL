@@ -516,5 +516,5 @@ void LCD_Init(void)
 	}
 	LCD_Display_Dir(0);		 										//默认为竖屏
 	LCD_BL =1;																//点亮背光
-	LCD_Clear(GREEN);		
+	LCD_Clear(BKCOLOR);		
 }

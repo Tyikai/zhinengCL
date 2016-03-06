@@ -12,6 +12,15 @@ void Show_HZ16_BK(u16 Xpos, u16 Ypos, u8 *string);
 void Show_HZ16_NotBK(u16 Xpos, u16 Ypos, u8 *string);
 void Show_HZ16_String_BK(u16 Xpos, u16 Ypos, u8 *string);
 void Show_HZ16_String_NotBK(u16 Xpos, u16 Ypos, u8 *string);
-
+void Show_HZ24(u16 Xpos, u16 Ypos, u8 *string,u8 mode);
+void Show_HZ24_BK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ24_NotBK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ24_String_BK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ24_String_NotBK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ48(u16 Xpos, u16 Ypos, u8 *string,u8 mode);
+void Show_HZ48_BK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ48_NotBK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ48_String_BK(u16 Xpos, u16 Ypos, u8 *string);
+void Show_HZ48_String_NotBK(u16 Xpos, u16 Ypos, u8 *string);
 #endif
 

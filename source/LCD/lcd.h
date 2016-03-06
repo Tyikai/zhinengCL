@@ -30,6 +30,7 @@ void LCD_Init(void);
 #define BROWN 		0XBC40 										//棕色
 #define BRRED 		0XFC07 										//棕红色
 #define GRAY  		0X8430 										//灰色
+#define BKCOLOR 	0x901A										//背景色
 #endif
 
 

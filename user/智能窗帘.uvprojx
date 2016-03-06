@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC</IncludePath>
+              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC;..\USMART;..\source\UI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -486,6 +486,11 @@
               <FileType>1</FileType>
               <FilePath>..\STM32F10x_FWLib\src\stm32f10x_rtc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_tim.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -570,6 +575,11 @@
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\RTC\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\UI\ui.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -660,6 +670,26 @@
               <FileName>os_cpu_a.asm</FileName>
               <FileType>2</FileType>
               <FilePath>..\ucosii\PORT\os_cpu_a.asm</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USMART</GroupName>
+          <Files>
+            <File>
+              <FileName>usmart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USMART\usmart.c</FilePath>
+            </File>
+            <File>
+              <FileName>usmart_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USMART\usmart_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>usmart_str.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USMART\usmart_str.c</FilePath>
             </File>
           </Files>
         </Group>
