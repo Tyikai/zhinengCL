@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC;..\USMART;..\source\UI</IncludePath>
+              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC;..\USMART;..\source\UI;..\source\Beep;..\source\GUI;..\source\MALLOC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -580,6 +580,11 @@
               <FileName>ui.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\UI\ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\Beep\beep.c</FilePath>
             </File>
           </Files>
         </Group>

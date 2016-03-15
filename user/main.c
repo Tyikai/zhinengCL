@@ -10,6 +10,10 @@
 #include "showEN.h"
 #include "usmart.h"
 #include "ui.h"
+#include "led.h"
+#include "beep.h"
+#include "showCH.h"
+#include "rtc.h"
 int main(void)
 {
 	/*
@@ -20,13 +24,20 @@ int main(void)
 	u8 t=0;
 	delay_init();	
 	uart_init(9600);					//初始化串口
-	AT24Cxx_Init();
-	AT24Cxx_WriteOneByte(56,0x18);
+	Led_Init();
 	LCD_Init();
+	//TP_Init();
 	usmart_dev.init(72);
+	UI_Run();
+	while(RTC_Init())
+	{
+		printf("初始化时钟出错\n");
+		delay_ms(500);
+	}
 	while(1)
 	{
-		UI_Run();
+		LED = !LED;
+		RTC_Show(0,0);
 		delay_ms(500);
 	}
 }
