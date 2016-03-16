@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC;..\USMART;..\source\UI;..\source\Beep;..\source\GUI;..\source\MALLOC</IncludePath>
+              <IncludePath>..\user;..\startup;..\system\delay;..\system\sys;..\system\usart;..\STM32F10x_FWLib\inc;..\ucosii\CONFIG;..\ucosii\CORE;..\ucosii\PORT;..\source\App;..\source\Init;..\source\Led;..\source\LCD;..\source\24Cxx;..\source\IIC;..\source\TOUCH;..\source\KEY;..\source\RTC;..\USMART;..\source\UI;..\source\Beep;..\source\BH1750;..\source\Limit;..\source\PWM;..\source\TB6612</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -517,6 +517,11 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\Led\led.c</FilePath>
+            </File>
+            <File>
               <FileName>app.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\App\app.c</FilePath>
@@ -525,11 +530,6 @@
               <FileName>init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\Init\init.c</FilePath>
-            </File>
-            <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\Led\led.c</FilePath>
             </File>
             <File>
               <FileName>ILI93xx.c</FileName>
@@ -585,6 +585,26 @@
               <FileName>beep.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\Beep\beep.c</FilePath>
+            </File>
+            <File>
+              <FileName>bh1750.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\BH1750\bh1750.c</FilePath>
+            </File>
+            <File>
+              <FileName>limit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\Limit\limit.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\PWM\pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>tb6612.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\TB6612\tb6612.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -14,6 +14,9 @@
 #include "beep.h"
 #include "showCH.h"
 #include "rtc.h"
+#include "bh1750.h"
+#include "limit.h"
+#include "tb6612.h"
 int main(void)
 {
 	/*
@@ -26,19 +29,30 @@ int main(void)
 	uart_init(9600);					//初始化串口
 	Led_Init();
 	LCD_Init();
+	Limit_Init();
 	//TP_Init();
 	usmart_dev.init(72);
 	UI_Run();
+	//TB6612_Init();
+	tp_dev.init();
 	while(RTC_Init())
 	{
 		printf("初始化时钟出错\n");
+		
 		delay_ms(500);
 	}
+	/*
+	while(BH1750_Init())
+	{
+		printf("初始化光强传感器出错\n");
+		delay_ms(500);		
+	}*/
 	while(1)
 	{
 		LED = !LED;
 		RTC_Show(0,0);
 		delay_ms(500);
+		
 	}
 }
 
